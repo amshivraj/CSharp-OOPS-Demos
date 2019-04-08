@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Static
+{
+    class Program
+    {
+        int a=0;
+        static int b;
+        static string show()
+        {
+            Console.WriteLine("hello static console");
+            return "hello static";
+        }
+        Program()
+        {
+            Console.WriteLine("hello constructor");
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(b);
+            Program.show();
+            var obj = new Program();
+            Console.ReadKey();
+        }
+    }
+}
