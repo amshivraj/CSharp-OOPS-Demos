@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StaticOverlidingOverloading
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            A.Say();
+            //B.Say();
+            Console.ReadLine();
+        }
+    }
+    public class A
+    {
+        public static void Say()
+        {
+            Console.WriteLine("Base");
+        }
+        public static void Write() {}
+        public static void Say(int a) { }
+        public static void Say(int a,string b) { Console.WriteLine("intstring"); }
+        public static void Say(string b,int a) { Console.WriteLine("stringint"); }
+    }
+    static class B //: A
+    {
+        static B() {
+        }
+        //static B(int a){
+        //    } //Not Allowed
+        public static void Say()
+        {
+            Console.WriteLine("Child");
+        }
+    }
+}
