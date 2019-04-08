@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(StaticCheck.staticVar);
+            StaticCheck obj = new StaticCheck(5);
+            obj.Display();
+            StaticCheck obj2 = new StaticCheck(50);
+            obj.Display();
+            Console.ReadLine();
+        }
+    }
+    class StaticCheck
+    {
+        public static int staticVar;
+        public StaticCheck(int staticVarSet)
+        {
+            staticVar = staticVarSet;
+        }
+        public void Display()
+        {
+            Console.WriteLine(staticVar);
+        }
+    }
+}
