@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RecursivePrime
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var arr = new List<int>();
+          new  Program().PrintPrime(1, 100,ref arr);
+            Console.Write(arr.Distinct().Count());
+            Console.WriteLine(" ");
+            arr.Distinct().ToList().ForEach(item =>
+            {
+                Console.Write(item);
+                Console.WriteLine(" ");
+            });
+            Console.ReadKey();
+        }
+        public List<int> PrintPrime(int lowerNum,int higherNum,ref List<int> arr)
+        {
+            if (lowerNum == 1)
+            {
+                //Console.Write(2);
+                //Console.Write(" ");
+                //Console.Write(3);
+                arr.Add(2); arr.Add(3); ;
+                PrintPrime(4, higherNum, ref arr);
+            }
+            //if (lowerNum == 8)
+            //    Console.Write("");
+            if (lowerNum == higherNum)
+                return null;
+            int tempNum = (Int32)Math.Round(Math.Sqrt(lowerNum));
+            var count = 0;
+            x: if (lowerNum % tempNum == 0)
+            {                
+                PrintPrime(lowerNum + 1, higherNum,ref arr);
+                //return 0;
+            }
+            else if (lowerNum % tempNum != 0 && tempNum > 1)
+            {
+                //Console.WriteLine(lowerNum);
+                count++;
+                tempNum = tempNum - 1; goto x;//PrintPrime(lowerNum + 1, higherNum);
+            }
+            if (tempNum == 1 && lowerNum!=1)
+            {
+                //Console.Write(" "); 
+                arr.Add(lowerNum);
+            }
+            return null;
+        }
+    }
+}
